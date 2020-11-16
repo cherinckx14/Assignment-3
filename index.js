@@ -59,5 +59,16 @@ function modalButtonClick() {
   sell_something.classList.remove("hidden");
 }
 
-var buttons = document.getElementsByClassName('fas fa-plus');
-buttons.addEventListener('click', modalButtonClick);
+function modalExitClick() {
+  var backdrop = document.getElementByID('modal-backdrop');
+  backdrop.classList.add("hidden");
+  
+  var sell_something = document.getElementByID('sell-something-modal');
+  sell_something.classList.add("hidden");
+}
+
+var sell_Button = document.getElementsByClassName('fas fa-plus');
+sell_Button.addEventListener('click', modalButtonClick);
+
+var exit_Modal = document.getElementsbyClassName('modal-hide-button');
+exit_Modal.addEventListener('click', modalExitClick);
