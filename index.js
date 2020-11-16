@@ -6,7 +6,7 @@
  * Email: herincch@oregonstate.edu
  */
 
-function add_blog_post(photoURL, caption){
+function add_blog_post(photoURL, item, price, city, condition){
   var newPost = document.createElement('section');
   
   var postDiv = document.createElement('div');
@@ -22,23 +22,31 @@ function add_blog_post(photoURL, caption){
   
   var postImgDiv = document.createElement('div');
   postImgDiv.classList.add("post-image-container");
-  postImgDiv.src = photoURL;
-  postImgDiv.alt = item;
   postContentsDiv.appendChild(postImgDiv);
+  
+  var postImg = document.createElement('img');
+  postImg.src = photoURL;
+  postImg.alt = item;
+  postImgDiv.appendChild(postImgDiv);
   
   var postInfoDiv = document.createElement('div');
   postInfoDiv.classList.add("post-info-container");
-  postInfoDiv.textContent = caption
   postContentsDiv.appendChild(postInfoDiv);
   
+  var postInfoA = document.createElement('a');
+  postInfoA.textContent = item;
+  postInfoA.href = "#";
+  postInfoA.classList.add("post-title");
+  postInfoDiv.appendChild(postInfoA);
   
-  photoCardSection.classList.add("photo-card");
-  photoCardSection.classList.add("another-class");
-  photoCardSection.classList.add("another-class");
+  var postInfoPrice = document.createElement("SPAN");
+  postInfoPrice.textContent = price;
+  postInfoPrice.classList.add("post-price");
+  postInfoDiv.appendChild(postInfoPrice);
   
-  var imgContainerDiv = document.createElement('div');
-  imgContainerDiv.classList.add("img-container");
-  photoCardSection.appendChild(imgContainerDiv);
-  
+  var postInfoCity = document.createElement("SPAN");
+  postInfoCity.textContent = city;
+  postInfoCity.classList.add("post-city");
+  postInfoDiv.appendChild(postInfoCity);
   
 }
