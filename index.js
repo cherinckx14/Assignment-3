@@ -70,5 +70,5 @@ sell_Button.addEventListener('click', function () {
 });
 
 
-var exit_Modal = document.getElementsbyClassName('modal-hide-button');
+var exit_Modal = document.getElementsByClassName('modal-hide-button');
 exit_Modal.addEventListener('click', modalExitClick);
