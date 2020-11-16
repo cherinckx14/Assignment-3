@@ -58,7 +58,7 @@ function modalExitClick(event) {
   sell_something.classList.add("hidden");
 }
 
-var sell_Button = document.getElementbyId('sell-something-button');
+var sell_Button = document.getElementById('sell-something-button');
 
 sell_Button.addEventListener('click', function () {
   console.log("== the sell button was clicked")
