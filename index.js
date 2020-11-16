@@ -62,6 +62,7 @@ function modalExitClick(event) {
 var sell_Button = document.getElementsbyID('sell-something-button');
 
 sell_Button.addEventListener('click', function () {
+  console.log("== the sell button was clicked")
   var backdrop = document.getElementByID('modal-backdrop');
   backdrop.classList.remove("hidden");
   
