@@ -50,3 +50,14 @@ function add_blog_post(photoURL, item, price, city, condition){
   postInfoDiv.appendChild(postInfoCity);
   
 }
+
+function modalButtonClick() {
+  var backdrop = document.getElementByID('modal-backdrop');
+  backdrop.classList.remove("hidden");
+  
+  var sell_something = document.getElementByID('sell-something-modal');
+  sell_something.classList.remove("hidden");
+}
+
+var buttons = document.getElementsByClassName('fas fa-plus');
+buttons.addEventListener('click', modalButtonClick);
