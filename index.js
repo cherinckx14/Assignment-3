@@ -5,7 +5,6 @@
  * Name: Christian Herinckx
  * Email: herincch@oregonstate.edu
  */
-
 function add_blog_post(photoURL, item, price, city, condition){
   var newPost = document.createElement('section');
   
