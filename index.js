@@ -51,7 +51,7 @@ function add_blog_post(photoURL, item, price, city, condition){
   
 }
 
-function modalButtonClick() {
+function modalButtonClick(event) {
   var backdrop = document.getElementByID('modal-backdrop');
   backdrop.classList.remove("hidden");
   
@@ -59,7 +59,7 @@ function modalButtonClick() {
   sell_something.classList.remove("hidden");
 }
 
-function modalExitClick() {
+function modalExitClick(event) {
   var backdrop = document.getElementByID('modal-backdrop');
   backdrop.classList.add("hidden");
   
