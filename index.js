@@ -67,7 +67,7 @@ function modalExitClick() {
   sell_something.classList.add("hidden");
 }
 
-var sell_Button = document.getElementsByClassName('fas fa-plus');
+var sell_Button = document.getElementsbyID('sell-something-button');
 sell_Button.addEventListener('click', modalButtonClick);
 
 var exit_Modal = document.getElementsbyClassName('modal-hide-button');
