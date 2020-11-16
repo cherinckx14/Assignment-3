@@ -51,21 +51,21 @@ function add_blog_post(photoURL, item, price, city, condition){
 }
 
 function modalExitClick(event) {
-  var backdrop = document.getElementByID('modal-backdrop');
+  var backdrop = document.getElementById('modal-backdrop');
   backdrop.classList.add("hidden");
   
-  var sell_something = document.getElementByID('sell-something-modal');
+  var sell_something = document.getElementById('sell-something-modal');
   sell_something.classList.add("hidden");
 }
 
-var sell_Button = document.getElementbyID('sell-something-button');
+var sell_Button = document.getElementbyId('sell-something-button');
 
 sell_Button.addEventListener('click', function () {
   console.log("== the sell button was clicked")
-  var backdrop = document.getElementByID('modal-backdrop');
+  var backdrop = document.getElementById('modal-backdrop');
   backdrop.classList.remove("hidden");
   
-  var sell_something = document.getElementByID('sell-something-modal');
+  var sell_something = document.getElementById('sell-something-modal');
   sell_something.classList.remove("hidden");
 });
 
