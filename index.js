@@ -6,7 +6,7 @@
  * Email: herincch@oregonstate.edu
  */
 
-/*function add_blog_post(photoURL, item, price, city, condition){
+function add_blog_post(photoURL, item, price, city, condition){
   var newPost = document.createElement('section');
   
   var postDiv = document.createElement('div');
