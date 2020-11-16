@@ -50,15 +50,7 @@ function add_blog_post(photoURL, item, price, city, condition){
   
 }
 
-function modalExitClick(event) {
-  var backdrop = document.getElementById('modal-backdrop');
-  backdrop.classList.add("hidden");
-  
-  var sell_something = document.getElementById('sell-something-modal');
-  sell_something.classList.add("hidden");
-  
-    console.log("== the exit button was clicked")
-}
+/*Button click to open/exit modal*/
 
 var sell_Button = document.getElementById('sell-something-button');
 
@@ -73,4 +65,15 @@ sell_Button.addEventListener('click', function () {
 
 
 var exit_Modal = document.getElementsByClassName('modal-hide-button');
-exit_Modal.addEventListener('click', modalExitClick);
+exit_Modal.addEventListener('click', function () {
+  var backdrop = document.getElementById('modal-backdrop');
+  backdrop.classList.add("hidden");
+  
+  var sell_something = document.getElementById('sell-something-modal');
+  sell_something.classList.add("hidden");
+  
+  console.log("== the exit button was clicked")
+});
+
+/* Input for the modal to turn into a post*/
+
