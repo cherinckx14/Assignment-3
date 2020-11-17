@@ -119,3 +119,16 @@ exit_Modal.addEventListener('click', function () {
   getUserInputs();
   console.log("== the create post button was clicked")
 });
+
+
+/* Filtering*/
+var filter_Button = document.getElementById('filter-update-button');
+filter_Button.addEventListener('click', function () {
+  console.log("== the filter button was clicked")
+  var text = document.getElementById('').value;
+  var min_price = document.getElementById('').value;
+  var max_price = document.getElementById('').value;
+  var city = document.getElementById('').value;
+  var condition = document.getElementById('').value;
+  
+});
