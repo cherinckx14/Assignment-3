@@ -131,11 +131,11 @@ filter_Button.addEventListener('click', function () {
   var city = document.getElementById('filter-city');
   var condition = document.getElementById('filter-condition');
   
-  text.getElementsByTagName("input);
-  min_price.getElementsByTagName("input);
-  max_price.getElementsByTagName("input);
-  city.getElementsByTagName("input);
-  condition.getElementsByTagName("input);                          
+  text.getElementsByTagName("input");
+  min_price.getElementsByTagName("input");
+  max_price.getElementsByTagName("input");
+  city.getElementsByTagName("input");
+  condition.getElementsByTagName("input");                          
   
   var posts = document.getElementById('posts');
   
@@ -146,5 +146,33 @@ filter_Button.addEventListener('click', function () {
       }
     }
   }
-  
+  for (var i = posts.length - 1; i >= 0; --i){
+    var validInput = true;
+    if (posts[i].getAttribute('data-price') < min_price){
+      validInput = false;
+    }
+    else if (posts[i].getAttribute('data-price' > maxprice){
+        validInput = false;
+    }
+    else if (posts[i].getAttribute('post-title' != city || city != ''){
+        validInput = false;
+    }
+    else if (posts[i].getAttribute('text' != text){
+        validInput = false;
+    }
+    if (conditions.length != 0){
+      var validInput2 = true;
+      for (var j = conditions.length - 1; j >= 0; --j){
+        if (posts[i].getAttributes('data-condition') === conditions[j]){
+          validInput2 = false;
+        }
+      }
+      if (validInput2 == true){
+        validInput = false;
+      }
+    }
+    if (validInput == true){
+      posts[i].classList.add("hidden);
+    }
+  }
 });
