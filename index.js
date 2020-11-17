@@ -8,16 +8,11 @@
 
 /*This function is used to add a blog post*/
 function add_blog_post(photoURL, item, price, city, condition){
-  alert(1)
-  var newPost = document.createElement('section');
-  newPost.setAttribute("id", "posts")
-
   var postDiv = document.createElement('div');
   postDiv.classList.add("post");
   postDiv.setAttribute("data-price", price);
   postDiv.setAttribute("data-city", city);
   postDiv.setAttribute("data-condition", condition);
-  newPost.appendChild(postDiv);
 
   var postContentsDiv = document.createElement('div');
   postContentsDiv.classList.add("post-contents");
@@ -52,6 +47,8 @@ function add_blog_post(photoURL, item, price, city, condition){
   postInfoCity.classList.add("post-city");
   postInfoDiv.appendChild(postInfoCity);
 
+	var Posts = document.getElementById('posts')
+	Posts.appendChild(postDiv);
 }
 
 /*Button click to open/exit modal*/
@@ -112,7 +109,15 @@ function getUserInputs() {
 
   var city = document.getElementById('post-city-input').value;
 
-  var condition = document.getElementById('post-condition-fieldset');
+ 	var radioButtons = document.getElementsByName('post-condition');
+  var length = radioButtons.length
+  for (var i = 0; i < length; ++i){
+  	if (radioButtons[i].checked){
+    	var condition = radioButtons[i].value;
+    }
+  }
+
+
 
   if (item != '' && photoURL != '' && price != '' && city != ''){
     add_blog_post(photoURL, item, price, city, condition);
