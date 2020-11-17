@@ -28,7 +28,7 @@ function add_blog_post(photoURL, item, price, city, condition){
   var postImg = document.createElement('img');
   postImg.src = photoURL;
   postImg.alt = item;
-  postImgDiv.appendChild(postImgDiv);
+  postImg.appendChild(postImgDiv);
   
   var postInfoDiv = document.createElement('div');
   postInfoDiv.classList.add("post-info-container");
