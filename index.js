@@ -63,6 +63,14 @@ sell_Button.addEventListener('click', function () {
   sell_something.classList.remove("hidden");
 });
 
+function resetModalText(condition){
+  fieldset = document.getElementById('post-condition-fieldset');
+  conditionsInputted = fieldset.querySelectorAll("input");
+  conditionsInputted[0].checked = true;
+  for (var i = 1; i < conditionsInputted.length; ++i){
+    conditionsInputted[i].checked = false;
+  }
+}
 
 var cancel_Modal = document.getElementById('modal-cancel');
 cancel_Modal.addEventListener('click', function () {
@@ -73,6 +81,8 @@ cancel_Modal.addEventListener('click', function () {
   sell_something.classList.add("hidden");
   
   console.log("== the exit button was clicked")
+  
+  
 });
 
 var exit_Modal = document.getElementById('modal-close');
@@ -144,10 +154,10 @@ filter_Button.addEventListener('click', function () {
     if (posts[i].getAttribute('data-price') < min_price && min_price != ''){
       validInput = false;
     }
-    else if (posts[i].getAttribute('data-price' > max_price && max_price != ''){
+    else if (posts[i].getAttribute('data-price') > max_price && max_price != ''){
         validInput = false;
     }
-    else if (posts[i].getAttribute('post-title' != city || city != ''){
+    else if (posts[i].getAttribute('post-title') != city || city != ''){
         validInput = false;
     }
     else if (posts[i].getAttribute('text').toLowerCase().indexOf(text).toLowerCase() == -1 && text != ''){
