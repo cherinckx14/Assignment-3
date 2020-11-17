@@ -8,16 +8,17 @@
 
 /*This function is used to add a blog post*/
 function add_blog_post(photoURL, item, price, city, condition){
-  console.log(item)
+  alert(1)
   var newPost = document.createElement('section');
-  
+  newPost.setAttribute("id", "posts")
+
   var postDiv = document.createElement('div');
   postDiv.classList.add("post");
   postDiv.setAttribute("data-price", price);
   postDiv.setAttribute("data-city", city);
   postDiv.setAttribute("data-condition", condition);
   newPost.appendChild(postDiv);
-  
+
   var postContentsDiv = document.createElement('div');
   postContentsDiv.classList.add("post-contents");
   postDiv.appendChild(postContentsDiv);
@@ -34,7 +35,7 @@ function add_blog_post(photoURL, item, price, city, condition){
   var postInfoDiv = document.createElement('div');
   postInfoDiv.classList.add("post-info-container");
   postContentsDiv.appendChild(postInfoDiv);
-  
+
   var postInfoA = document.createElement('a');
   postInfoA.textContent = item;
   postInfoA.href = "#";
@@ -50,7 +51,7 @@ function add_blog_post(photoURL, item, price, city, condition){
   postInfoCity.textContent = city;
   postInfoCity.classList.add("post-city");
   postInfoDiv.appendChild(postInfoCity);
-  
+
 }
 
 /*Button click to open/exit modal*/
@@ -101,20 +102,6 @@ function handleWordsEntered(event) {
   currentWord = 0
 }
 
-/*Resets the text in the modal when closed*/
-function resetModalText(item, photoURL, price, city, condition){
-  item = ''
-  photoURL = ''
-  price = ''
-  city = ''
-  fieldset = document.getElementById('post-condition-fieldset');
-  conditionsInputted = fieldset.querySelectorAll("input");
-  conditionsInputted[0].checked = true;
-  for (var i = 1; i < conditionsInputted.length; ++i){
-    conditionsInputted[i].checked = false;
-  }
-}
-
 /*Retrieves user inputs, calls to add the blog post and reset the text boxes*/
 function getUserInputs() {
   var item = document.getElementById('post-text-input').value;
@@ -129,8 +116,28 @@ function getUserInputs() {
 
   if (item != '' && photoURL != '' && price != '' && city != ''){
     add_blog_post(photoURL, item, price, city, condition);
+    var backdrop = document.getElementById('modal-backdrop');
+  backdrop.classList.add("hidden");
+  
+  var sell_something = document.getElementById('sell-something-modal');
+  sell_something.classList.add("hidden");
   }
-  resetModalText(item, photoURL, price, city, condition)
+  else{
+  	alert("Invalid Entries! Input something in every space.");
+  }
+    /*Resets Modal to blank*/
+  document.getElementById('post-text-input').value= '';
+  document.getElementById('post-photo-input').value= '';
+  document.getElementById('post-price-input').value= '';
+  document.getElementById('post-city-input').value= '';
+  
+  fieldset = document.getElementById('post-condition-fieldset');
+  conditionsInputted = fieldset.querySelectorAll("input");
+  conditionsInputted[0].checked = true;
+  for (var i = 1; i < conditionsInputted.length; ++i){
+    conditionsInputted[i].checked = false;
+  }
+
 }
 
 
@@ -139,11 +146,6 @@ function getUserInputs() {
 var postEntry = document.getElementById('modal-accept');
 postEntry.addEventListener('click', function () {
   console.log("== the create post button was clicked")
-  var backdrop = document.getElementById('modal-backdrop');
-  backdrop.classList.add("hidden");
-  
-  var sell_something = document.getElementById('sell-something-modal');
-  sell_something.classList.add("hidden");
   getUserInputs();
 });
 
