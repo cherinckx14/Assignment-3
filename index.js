@@ -158,26 +158,27 @@ filter_Button.addEventListener('click', function () {
   var city = document.getElementById('filter-city').value;
 	const checkboxes = document.querySelectorAll('input[name = filter-condition]:checked');
   var condition = []
+  /*Checkbox tutorial found on: https://www.javascripttutorial.net/javascript-dom/javascript-checkbox/*/
   checkboxes.forEach((checkbox) => {
   	conditions.push(checkbox.value);
   })
-  alert(condition.length);
+
   var posts = document.getElementById('posts').children;
   for (i = posts.length - 1; i >= 0; --i){
     var validInput = true;
     name_of_post = posts[i].getElementsByClassName('post-title');
+	  for (var i = 0; i < name_of_post.length; ++i){
+		  var name = name_of_post[i].innerText;
+	  }
     if (Number(posts[i].getAttribute('data-price')) < Number(min_price)){
       validInput = false;
-      alert(1);
     }
 
     else if (Number(posts[i].getAttribute('data-price')) > Number(max_price) && max_price != ''){
         validInput = false;
-        alert(2);
     }
     else if ((posts[i].getAttribute('data-city') != city) && (city != '')){
         validInput = false;
-        alert(3);
     }
     /*else if ((name_of_post.toLowerCase().indexOf(text.toLowerCase()) == -1) && (text != '')){
         validInput = false;
@@ -185,23 +186,19 @@ filter_Button.addEventListener('click', function () {
     }*/
     if (condition.length != 0){
       var validInput2 = true;
-      for (var j = condition.length - 1; j >= 1; --j){
-      	alert("t")
-        if (posts[i].getAttributes('data-condition') === condition[j]){
+      for (var j = condition.length - 1; j >= 0; --j){
+        if (posts[i].getAttribute('data-condition') === condition[j]){
           validInput2 = false;
-          alert(5);
         }
       }
       
       if (validInput2 == true){
         validInput = false;
-        alert(20);
       }
     }
     
     if (validInput == true){
       posts[i].remove();
-      alert(7);
     }
   }
 });
