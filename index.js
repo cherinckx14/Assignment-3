@@ -166,10 +166,8 @@ filter_Button.addEventListener('click', function () {
   var posts = document.getElementById('posts').children;
   for (i = posts.length - 1; i >= 0; --i){
     var validInput = true;
-    name_of_post = posts[i].getElementsByClassName('post-title');
-	  for (var i = 0; i < name_of_post.length; ++i){
-		  var name = name_of_post[i].innerText;
-	  }
+    name_of_post = posts[i].getElementById('post-title').innerText;
+    alert(name_of_post)
     if (Number(posts[i].getAttribute('data-price')) < Number(min_price)){
       validInput = false;
     }
