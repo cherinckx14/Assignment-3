@@ -64,7 +64,18 @@ sell_Button.addEventListener('click', function () {
 });
 
 
-var exit_Modal = document.getElementsByClassName('modal-hide-button');
+var cancel_Modal = document.getElementById('modal-cancel');
+cancel_Modal.addEventListener('click', function () {
+  var backdrop = document.getElementById('modal-backdrop');
+  backdrop.classList.add("hidden");
+  
+  var sell_something = document.getElementById('sell-something-modal');
+  sell_something.classList.add("hidden");
+  
+  console.log("== the exit button was clicked")
+});
+
+var exit_Modal = document.getElementById('modal-close');
 exit_Modal.addEventListener('click', function () {
   var backdrop = document.getElementById('modal-backdrop');
   backdrop.classList.add("hidden");
@@ -76,4 +87,10 @@ exit_Modal.addEventListener('click', function () {
 });
 
 /* Input for the modal to turn into a post*/
-
+function getUserInputs() {
+  var item = document.getElementById('post-text-input');
+  var photoURL = document.getElementById('post-photo-input');
+  var price = document.getElementById('post-price-input');
+  var city = document.getElementById('post-city-input');
+  var condition = document.getElementById('filter-text');
+}
