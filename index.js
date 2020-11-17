@@ -103,6 +103,8 @@ function getUserInputs() {
   alert(price);
   var city = document.getElementById('post-city-input').value;
   alert(city);
+  var condition = document.getElementById('post-condition-fieldset').value;
+  alert(condition);
   
   add_blog_post(photoURL, item, price, city, condition);
 }
