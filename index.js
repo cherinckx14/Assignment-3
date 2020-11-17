@@ -29,7 +29,7 @@ function add_blog_post(photoURL, item, price, city, condition){
   var postImg = document.createElement('img');
   postImg.src = photoURL;
   postImg.alt = item;
-  postImg.appendChild(postImgDiv);
+  postImgDiv.appendChild(postImg);
   
   var postInfoDiv = document.createElement('div');
   postInfoDiv.classList.add("post-info-container");
@@ -112,15 +112,15 @@ function handleWordsEntered(event) {
 }
 
 function getUserInputs() {
-  var item = document.getElementById('post-text-input').value;
+  var item = document.getElementById('post-text-input');
 
-  var photoURL = document.getElementById('post-photo-input').value;
+  var photoURL = document.getElementById('post-photo-input');
 
-  var price = document.getElementById('post-price-input').value;
+  var price = document.getElementById('post-price-input');
 
-  var city = document.getElementById('post-city-input').value;
+  var city = document.getElementById('post-city-input');
 
-  var condition = document.getElementById('post-condition-fieldset').value;
+  var condition = document.getElementById('post-condition-fieldset');
 
   
   add_blog_post(photoURL, item, price, city, condition);
