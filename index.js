@@ -8,7 +8,7 @@
 
 /*This function is used to add a blog post*/
 function add_blog_post(photoURL, item, price, city, condition){
-  console.log("== the create post button was clicked", item, price, city, condition)
+  console.log(item)
   var newPost = document.createElement('section');
   
   var postDiv = document.createElement('div');
@@ -66,16 +66,6 @@ sell_Button.addEventListener('click', function () {
   sell_something.classList.remove("hidden");
 });
 
-/*Resets the text in the modal when closed*/
-function resetModalText(condition){
-  fieldset = document.getElementById('post-condition-fieldset');
-  conditionsInputted = fieldset.querySelectorAll("input");
-  conditionsInputted[0].checked = true;
-  for (var i = 1; i < conditionsInputted.length; ++i){
-    conditionsInputted[i].checked = false;
-  }
-}
-
 /*Closes the modal*/
 var cancel_Modal = document.getElementById('modal-cancel');
 cancel_Modal.addEventListener('click', function () {
@@ -111,20 +101,39 @@ function handleWordsEntered(event) {
   currentWord = 0
 }
 
+/*Resets the text in the modal when closed*/
+function resetModalText(item, photoURL, price, city, condition){
+  item = ''
+  photoURL = ''
+  price = ''
+  city = ''
+  fieldset = document.getElementById('post-condition-fieldset');
+  conditionsInputted = fieldset.querySelectorAll("input");
+  conditionsInputted[0].checked = true;
+  for (var i = 1; i < conditionsInputted.length; ++i){
+    conditionsInputted[i].checked = false;
+  }
+}
+
+/*Retrieves user inputs, calls to add the blog post and reset the text boxes*/
 function getUserInputs() {
-  var item = document.getElementById('post-text-input');
+  var item = document.getElementById('post-text-input').value;
 
-  var photoURL = document.getElementById('post-photo-input');
+  var photoURL = document.getElementById('post-photo-input').value;
 
-  var price = document.getElementById('post-price-input');
+  var price = document.getElementById('post-price-input').value;
 
-  var city = document.getElementById('post-city-input');
+  var city = document.getElementById('post-city-input').value;
 
   var condition = document.getElementById('post-condition-fieldset');
 
-  
-  add_blog_post(photoURL, item, price, city, condition);
+  if (item != '' && photoURL != '' && price != '' && city != '' and condition != ''){
+    add_blog_post(photoURL, item, price, city, condition);
+  }
+  resetModalText(item, photoURL, price, city, condition)
 }
+
+
 
 /* Button to add the post to the site*/
 var postEntry = document.getElementById('modal-accept');
