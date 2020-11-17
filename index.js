@@ -163,7 +163,8 @@ filter_Button.addEventListener('click', function () {
   min_price.getElementsByTagName("input");
   max_price.getElementsByTagName("input");
   city.getElementsByTagName("input");
-  condition.getElementsByTagName("input");                          
+  condition.getElementsByTagName("input");
+  console.log(text)
   
   var posts = document.getElementById('posts');
  
