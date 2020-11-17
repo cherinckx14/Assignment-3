@@ -157,7 +157,7 @@ filter_Button.addEventListener('click', function () {
     else if (posts[i].getAttribute('post-title' != city || city != ''){
         validInput = false;
     }
-    else if (posts[i].getAttribute('text' != text){
+    else if (posts[i].getAttribute('text').indexOf(text) == -1){
         validInput = false;
     }
     if (conditions.length != 0){
