@@ -165,7 +165,7 @@ filter_Button.addEventListener('click', function () {
       }
     }
     if (validInput == true){
-      posts[i].classList.add("hidden);
+      posts[i].remove();
     }
   }
 });
