@@ -138,14 +138,7 @@ filter_Button.addEventListener('click', function () {
   condition.getElementsByTagName("input");                          
   
   var posts = document.getElementById('posts');
-  
-  if (condition != ''){
-    for (var i = 0; i < posts.length; ++i){
-      if (posts[i].dataCondition != condition.fieldSet){
-        posts[i].classList.add('hidden);
-      }
-    }
-  }
+ 
   for (var i = posts.length - 1; i >= 0; --i){
     var validInput = true;
     if (posts[i].getAttribute('data-price') < min_price){
