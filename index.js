@@ -5,6 +5,8 @@
  * Name: Christian Herinckx
  * Email: herincch@oregonstate.edu
  */
+
+/*This function is used to add a blog post*/
 function add_blog_post(photoURL, item, price, city, condition){
   var newPost = document.createElement('section');
   
@@ -51,9 +53,9 @@ function add_blog_post(photoURL, item, price, city, condition){
 }
 
 /*Button click to open/exit modal*/
-
 var sell_Button = document.getElementById('sell-something-button');
 
+/*Opens up the modal and modal backdrop*/
 sell_Button.addEventListener('click', function () {
   console.log("== the sell button was clicked")
   var backdrop = document.getElementById('modal-backdrop');
@@ -63,6 +65,7 @@ sell_Button.addEventListener('click', function () {
   sell_something.classList.remove("hidden");
 });
 
+/*Resets the text in the modal when closed*/
 function resetModalText(condition){
   fieldset = document.getElementById('post-condition-fieldset');
   conditionsInputted = fieldset.querySelectorAll("input");
@@ -72,6 +75,7 @@ function resetModalText(condition){
   }
 }
 
+/*Closes the modal*/
 var cancel_Modal = document.getElementById('modal-cancel');
 cancel_Modal.addEventListener('click', function () {
   var backdrop = document.getElementById('modal-backdrop');
@@ -85,6 +89,7 @@ cancel_Modal.addEventListener('click', function () {
   
 });
 
+/*Closes the modal*/
 var exit_Modal = document.getElementById('modal-close');
 exit_Modal.addEventListener('click', function () {
   var backdrop = document.getElementById('modal-backdrop');
@@ -95,6 +100,7 @@ exit_Modal.addEventListener('click', function () {
   
   console.log("== the exit button was clicked")
 });
+
 
 /* Input for the modal to turn into a post*/
 function handleWordsEntered(event) {
@@ -119,8 +125,9 @@ function getUserInputs() {
   add_blog_post(photoURL, item, price, city, condition);
 }
 
+/* Button to add the post to the site*/
 var postEntry = document.getElementById('modal-accept');
-exit_Modal.addEventListener('click', function () {
+postEntry.addEventListener('click', function () {
   console.log("== the create post button was clicked")
   var backdrop = document.getElementById('modal-backdrop');
   backdrop.classList.add("hidden");
