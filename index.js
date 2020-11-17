@@ -141,16 +141,16 @@ filter_Button.addEventListener('click', function () {
  
   for (var i = posts.length - 1; i >= 0; --i){
     var validInput = true;
-    if (posts[i].getAttribute('data-price') < min_price){
+    if (posts[i].getAttribute('data-price') < min_price && min_price != ''){
       validInput = false;
     }
-    else if (posts[i].getAttribute('data-price' > maxprice){
+    else if (posts[i].getAttribute('data-price' > max_price && max_price != ''){
         validInput = false;
     }
     else if (posts[i].getAttribute('post-title' != city || city != ''){
         validInput = false;
     }
-    else if (posts[i].getAttribute('text').indexOf(text) == -1){
+    else if (posts[i].getAttribute('text').toLowerCase().indexOf(text).toLowerCase() == -1 && text != ''){
         validInput = false;
     }
     if (conditions.length != 0){
