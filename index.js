@@ -87,10 +87,33 @@ exit_Modal.addEventListener('click', function () {
 });
 
 /* Input for the modal to turn into a post*/
-function getUserInputs() {
-  var item = document.getElementById('post-text-input');
-  var photoURL = document.getElementById('post-photo-input');
-  var price = document.getElementById('post-price-input');
-  var city = document.getElementById('post-city-input');
-  var condition = document.getElementById('filter-text');
+function handleWordsEntered(event) {
+  var text = event.currentTarget.value;
+  allWords = text.replace(/[!"#$%&\\'()\*+,\-\.\/:;<=>?@\[\\\]\^_'{|}~]/g, '')
+    .toLowerCase().split('')
+  currentWord = 0
 }
+
+function getUserInputs() {
+  var item = document.getElementById('post-text-input').value;
+  alert(item);
+  var photoURL = document.getElementById('post-photo-input').value;
+  alert(photoURL);
+  var price = document.getElementById('post-price-input').value;
+  alert(price);
+  var city = document.getElementById('post-city-input').value;
+  alert(city);
+  
+  add_blog_post(photoURL, item, price, city, condition);
+}
+
+var postEntry = document.getElementById('modal-accept');
+exit_Modal.addEventListener('click', function () {
+  var backdrop = document.getElementById('modal-backdrop');
+  backdrop.classList.add("hidden");
+  
+  var sell_something = document.getElementById('sell-something-modal');
+  sell_something.classList.add("hidden");
+  getUserInputs();
+  console.log("== the create post button was clicked")
+});
