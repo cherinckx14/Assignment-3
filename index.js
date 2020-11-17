@@ -157,35 +157,43 @@ filter_Button.addEventListener('click', function () {
   var max_price = document.getElementById('filter-max-price').value;
   var city = document.getElementById('filter-city').value;
   var condition = document.getElementById('filter-condition');
-  alert(text);
+
   
   var posts = document.getElementById('posts');
- 
-  for (var i = posts.length - 1; i >= 0; --i){
+
+  for (var i in posts){
     var validInput = true;
+
     if (posts[i].getAttribute('data-price') < min_price && min_price != ''){
       validInput = false;
     }
+
     else if (posts[i].getAttribute('data-price') > max_price && max_price != ''){
         validInput = false;
     }
+    
     else if (posts[i].getAttribute('post-title') != city || city != ''){
         validInput = false;
     }
+    
     else if (posts[i].getAttribute('text').toLowerCase().indexOf(text).toLowerCase() == -1 && text != ''){
         validInput = false;
     }
+    
     if (conditions.length != 0){
       var validInput2 = true;
+      
       for (var j = conditions.length - 1; j >= 0; --j){
         if (posts[i].getAttributes('data-condition') === conditions[j]){
           validInput2 = false;
         }
       }
+      
       if (validInput2 == true){
         validInput = false;
       }
     }
+    
     if (validInput == true){
       posts[i].remove();
     }
