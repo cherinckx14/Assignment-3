@@ -160,14 +160,11 @@ filter_Button.addEventListener('click', function () {
   var condition = []
   /*Checkbox tutorial found on: https://www.javascripttutorial.net/javascript-dom/javascript-checkbox/*/
   checkboxes.forEach((checkbox) => {
-  	conditions.push(checkbox.value);
+  	condition.push(checkbox.value);
   })
-
   var posts = document.getElementById('posts').children;
   for (i = posts.length - 1; i >= 0; --i){
     var validInput = true;
-    name_of_post = posts[i].getElementById('post-title').innerText;
-    alert(name_of_post)
     if (Number(posts[i].getAttribute('data-price')) < Number(min_price)){
       validInput = false;
     }
@@ -195,7 +192,7 @@ filter_Button.addEventListener('click', function () {
       }
     }
     
-    if (validInput == true){
+    if (validInput == false){
       posts[i].remove();
     }
   }
