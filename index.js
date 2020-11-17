@@ -125,10 +125,26 @@ exit_Modal.addEventListener('click', function () {
 var filter_Button = document.getElementById('filter-update-button');
 filter_Button.addEventListener('click', function () {
   console.log("== the filter button was clicked")
-  var text = document.getElementById('').value;
-  var min_price = document.getElementById('').value;
-  var max_price = document.getElementById('').value;
-  var city = document.getElementById('').value;
-  var condition = document.getElementById('').value;
+  var text = document.getElementById('filter-text');
+  var min_price = document.getElementById('filter-min-price');
+  var max_price = document.getElementById('filter-max-price');
+  var city = document.getElementById('filter-city');
+  var condition = document.getElementById('filter-condition');
+  
+  text.getElementsByTagName("input);
+  min_price.getElementsByTagName("input);
+  max_price.getElementsByTagName("input);
+  city.getElementsByTagName("input);
+  condition.getElementsByTagName("input);                          
+  
+  var posts = document.getElementById('posts');
+  
+  if (condition != ''){
+    for (var i = 0; i < posts.length; ++i){
+      if (posts[i].dataCondition != condition.fieldSet){
+        posts[i].classList.add('hidden);
+      }
+    }
+  }
   
 });
