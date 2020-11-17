@@ -156,46 +156,52 @@ filter_Button.addEventListener('click', function () {
   var min_price = document.getElementById('filter-min-price').value;
   var max_price = document.getElementById('filter-max-price').value;
   var city = document.getElementById('filter-city').value;
-  var condition = document.getElementById('filter-condition');
-
-  
-  var posts = document.getElementById('posts');
-
-  for (var i in posts){
+	const checkboxes = document.querySelectorAll('input[name = filter-condition]:checked');
+  var condition = []
+  checkboxes.forEach((checkbox) => {
+  	conditions.push(checkbox.value);
+  })
+  alert(condition.length);
+  var posts = document.getElementById('posts').children;
+  for (i = posts.length - 1; i >= 0; --i){
     var validInput = true;
-
-    if (posts[i].getAttribute('data-price') < min_price && min_price != ''){
+    name_of_post = posts[i].getElementsByClassName('post-title');
+    if (Number(posts[i].getAttribute('data-price')) < Number(min_price)){
       validInput = false;
+      alert(1);
     }
 
-    else if (posts[i].getAttribute('data-price') > max_price && max_price != ''){
+    else if (Number(posts[i].getAttribute('data-price')) > Number(max_price) && max_price != ''){
         validInput = false;
+        alert(2);
     }
-    
-    else if (posts[i].getAttribute('post-title') != city || city != ''){
+    else if ((posts[i].getAttribute('data-city') != city) && (city != '')){
         validInput = false;
+        alert(3);
     }
-    
-    else if (posts[i].getAttribute('text').toLowerCase().indexOf(text).toLowerCase() == -1 && text != ''){
+    /*else if ((name_of_post.toLowerCase().indexOf(text.toLowerCase()) == -1) && (text != '')){
         validInput = false;
-    }
-    
-    if (conditions.length != 0){
+        alert(4);
+    }*/
+    if (condition.length != 0){
       var validInput2 = true;
-      
-      for (var j = conditions.length - 1; j >= 0; --j){
-        if (posts[i].getAttributes('data-condition') === conditions[j]){
+      for (var j = condition.length - 1; j >= 1; --j){
+      	alert("t")
+        if (posts[i].getAttributes('data-condition') === condition[j]){
           validInput2 = false;
+          alert(5);
         }
       }
       
       if (validInput2 == true){
         validInput = false;
+        alert(20);
       }
     }
     
     if (validInput == true){
       posts[i].remove();
+      alert(7);
     }
   }
 });
