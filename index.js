@@ -127,7 +127,7 @@ function getUserInputs() {
 
   var condition = document.getElementById('post-condition-fieldset');
 
-  if (item != '' && photoURL != '' && price != '' && city != '' and condition != ''){
+  if (item != '' && photoURL != '' && price != '' && city != ''){
     add_blog_post(photoURL, item, price, city, condition);
   }
   resetModalText(item, photoURL, price, city, condition)
