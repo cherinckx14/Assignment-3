@@ -8,6 +8,7 @@
 
 /*This function is used to add a blog post*/
 function add_blog_post(photoURL, item, price, city, condition){
+  console.log("== the create post button was clicked", item, price, city, condition)
   var newPost = document.createElement('section');
   
   var postDiv = document.createElement('div');
@@ -147,6 +148,7 @@ filter_Button.addEventListener('click', function () {
   var max_price = document.getElementById('filter-max-price');
   var city = document.getElementById('filter-city');
   var condition = document.getElementById('filter-condition');
+  
   
   text.getElementsByTagName("input");
   min_price.getElementsByTagName("input");
